@@ -10,6 +10,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using Microsoft.EntityFrameworkCore;
+using gratisAPI.Data;
 
 namespace gratisAPI
 {
@@ -26,6 +28,9 @@ namespace gratisAPI
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
+
+            services.AddDbContext<gratisAPIContext>(options =>
+                    options.UseSqlServer(Configuration.GetConnectionString("gratisAPIContext")));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
