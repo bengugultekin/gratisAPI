@@ -14,6 +14,7 @@ namespace gratisAPI.Model
         [StringLength(60, MinimumLength =3)]
         public string Title { get; set; }
 
+        
         public int ParentId { get; set; }
     }
 }

@@ -12,55 +12,54 @@ namespace gratisAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class CategoriesController : ControllerBase
+    public class ProductsController : ControllerBase
     {
         private readonly gratisAPIContext _context;
 
-        public CategoriesController(gratisAPIContext context)
+        public ProductsController(gratisAPIContext context)
         {
             _context = context;
         }
 
-        // GET: api/Categories/SubCategories
-        [HttpGet("SubCategories/{categoryId}")]
-        public async Task<ActionResult<IEnumerable<Category>>> GetCategotiesByParentCategory(int categoryId)
+        // GET: api/Products/SubProducts
+        [HttpGet("SubProducts/{categoryId}")]
+        public async Task<ActionResult<IEnumerable<Product>>> GetProductByCategory(int categoryId)
         {
-            return await _context.Category.Where(x => x.ParentId == categoryId).ToListAsync();
+            return await _context.Product.Where(x => x.CategoryId == categoryId).ToListAsync();
         }
-
-        // GET: api/Categories
+        // GET: api/Products
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Category>>> GetCategory()
+        public async Task<ActionResult<IEnumerable<Product>>> GetProduct()
         {
-            return await _context.Category.ToListAsync();
+            return await _context.Product.ToListAsync();
         }
 
-        // GET: api/Categories/5
+        // GET: api/Products/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<Category>> GetCategory(int id)
+        public async Task<ActionResult<Product>> GetProduct(int id)
         {
-            var category = await _context.Category.FindAsync(id);
+            var product = await _context.Product.FindAsync(id);
 
-            if (category == null)
+            if (product == null)
             {
                 return NotFound();
             }
 
-            return category;
+            return product;
         }
 
-        // PUT: api/Categories/5
+        // PUT: api/Products/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for
         // more details see https://aka.ms/RazorPagesCRUD.
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutCategory(int id, Category category)
+        public async Task<IActionResult> PutProduct(int id, Product product)
         {
-            if (id != category.Id)
+            if (id != product.Id)
             {
                 return BadRequest();
             }
 
-            _context.Entry(category).State = EntityState.Modified;
+            _context.Entry(product).State = EntityState.Modified;
 
             try
             {
@@ -68,7 +67,7 @@ namespace gratisAPI.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!CategoryExists(id))
+                if (!ProductExists(id))
                 {
                     return NotFound();
                 }
@@ -81,37 +80,37 @@ namespace gratisAPI.Controllers
             return NoContent();
         }
 
-        // POST: api/Categories
+        // POST: api/Products
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for
         // more details see https://aka.ms/RazorPagesCRUD.
         [HttpPost]
-        public async Task<ActionResult<Category>> PostCategory(Category category)
+        public async Task<ActionResult<Product>> PostProduct(Product product)
         {
-            _context.Category.Add(category);
+            _context.Product.Add(product);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetCategory", new { id = category.Id }, category);
+            return CreatedAtAction("GetProduct", new { id = product.Id }, product);
         }
 
-        // DELETE: api/Categories/5
+        // DELETE: api/Products/5
         [HttpDelete("{id}")]
-        public async Task<ActionResult<Category>> DeleteCategory(int id)
+        public async Task<ActionResult<Product>> DeleteProduct(int id)
         {
-            var category = await _context.Category.FindAsync(id);
-            if (category == null)
+            var product = await _context.Product.FindAsync(id);
+            if (product == null)
             {
                 return NotFound();
             }
 
-            _context.Category.Remove(category);
+            _context.Product.Remove(product);
             await _context.SaveChangesAsync();
 
-            return category;
+            return product;
         }
 
-        private bool CategoryExists(int id)
+        private bool ProductExists(int id)
         {
-            return _context.Category.Any(e => e.Id == id);
+            return _context.Product.Any(e => e.Id == id);
         }
     }
 }

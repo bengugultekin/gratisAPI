@@ -15,5 +15,7 @@ namespace gratisAPI.Data
         }
 
         public DbSet<gratisAPI.Model.Category> Category { get; set; }
+
+        public DbSet<gratisAPI.Model.Product> Product { get; set; }
     }
 }

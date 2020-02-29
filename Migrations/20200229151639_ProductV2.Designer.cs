@@ -2,15 +2,17 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using gratisAPI.Data;
 
 namespace gratisAPI.Migrations
 {
     [DbContext(typeof(gratisAPIContext))]
-    partial class gratisAPIContextModelSnapshot : ModelSnapshot
+    [Migration("20200229151639_ProductV2")]
+    partial class ProductV2
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -60,9 +62,6 @@ namespace gratisAPI.Migrations
 
                     b.Property<decimal>("Price")
                         .HasColumnType("decimal(18,2)");
-
-                    b.Property<string>("URL")
-                        .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("color")
                         .HasColumnType("int");
