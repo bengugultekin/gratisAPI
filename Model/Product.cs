@@ -20,10 +20,15 @@ namespace gratisAPI.Model
 
         public decimal Price { get; set; }
 
-        public string Brand { get; set; }
-
         public int CategoryId { get; set; }
 
         public string URL { get; set; }
+
+        //0 sa kampanya yok, 1 se var
+        public bool hasCampain { get; set; }
+
+        public int BrandId { get; set; }
+
+        public int DiscountPercentage { get; set; }
     }
 }
