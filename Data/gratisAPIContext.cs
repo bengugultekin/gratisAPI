@@ -21,5 +21,9 @@ namespace gratisAPI.Data
         public DbSet<gratisAPI.Model.Brand> Brand { get; set; }
 
         public DbSet<gratisAPI.Model.Store> Store { get; set; }
+
+        public DbSet<gratisAPI.Model.Basket> Basket { get; set; }
+
+        public DbSet<gratisAPI.Model.Customer> Customer { get; set; }
     }
 }
