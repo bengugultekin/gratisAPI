@@ -15,6 +15,7 @@ namespace gratisAPI.Controllers
     public class BasketsController : ControllerBase
     {
         private readonly gratisAPIContext _context;
+        private IQueryable<Basket> sepettekiurun;
 
         public BasketsController(gratisAPIContext context)
         {
@@ -78,13 +79,25 @@ namespace gratisAPI.Controllers
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for
         // more details see https://aka.ms/RazorPagesCRUD.
         [HttpPost]
-        public async Task<ActionResult<Basket>> PostBasket(Basket basket)
+        public async Task<ActionResult<Basket>> PostBasket(int id,Basket basket, bool isPurchased, int CustomerId, int ProductId, int pCustomerId, int pProductId, int ProductCount)
         {
-            _context.Basket.Add(basket);
-            await _context.SaveChangesAsync();
+            sepettekiurun = _context.Basket.Where(x => x.ProductId == pProductId & x.CustomerId == pCustomerId & x.isPurchased == false);
+            if (sepettekiurun != null)
+            {
+                basket.Id = id;
+                basket.ProductCount++;
+                await _context.SaveChangesAsync();
+                return basket;
+            }
+            else
+            {
+                _context.Basket.Add(basket);
+                await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetBasket", new { id = basket.Id }, basket);
+                return CreatedAtAction("GetBasket", new { id = basket.Id }, basket);
+            }
         }
+
 
 
 
