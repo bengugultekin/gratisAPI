@@ -15,7 +15,7 @@ namespace gratisAPI.Controllers
     public class BasketsController : ControllerBase
     {
         private readonly gratisAPIContext _context;
-        private IQueryable<Basket> sepettekiurun;
+        private IQueryable<Basket> ProductInBasket;
 
         public BasketsController(gratisAPIContext context)
         {
@@ -81,11 +81,12 @@ namespace gratisAPI.Controllers
         [HttpPost]
         public async Task<ActionResult<Basket>> PostBasket(int id,Basket basket, bool isPurchased, int CustomerId, int ProductId, int pCustomerId, int pProductId, int ProductCount)
         {
-            sepettekiurun = _context.Basket.Where(x => x.ProductId == pProductId & x.CustomerId == pCustomerId & x.isPurchased == false);
-            if (sepettekiurun != null)
+            ProductInBasket = _context.Basket.Where(x => x.ProductId == pProductId & x.CustomerId == pCustomerId & x.isPurchased == false);
+            if (ProductInBasket != null)
             {
-                basket.Id = id;
-                basket.ProductCount++;
+                ProductCount = ProductInBasket.Count();
+                ProductCount++;
+                basket.ProductCount = ProductCount;
                 await _context.SaveChangesAsync();
                 return basket;
             }
