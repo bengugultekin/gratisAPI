@@ -82,6 +82,8 @@ namespace gratisAPI.Controllers
         public async Task<ActionResult<Basket>> PostBasket(int id,Basket basket, bool isPurchased, int CustomerId, int ProductId, int pCustomerId, int pProductId, int ProductCount)
         {
             ProductInBasket = _context.Basket.Where(x => x.ProductId == pProductId & x.CustomerId == pCustomerId & x.isPurchased == false);
+            await _context.Basket.FirstOrDefaultAsync(x => x.Id > 0);
+
             if (ProductInBasket != null)
             {
                 ProductCount = ProductInBasket.Count();
