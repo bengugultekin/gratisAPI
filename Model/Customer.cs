@@ -14,6 +14,6 @@ namespace gratisAPI.Model
         public string Street { get; set; }
         public int PostCode { get; set; }
         public string Email { get; set; }
-        public string Password { get; set; }
+        
     }
 }

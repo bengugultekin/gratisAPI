@@ -21,12 +21,6 @@ namespace gratisAPI.Controllers
             _context = context;
         }
 
-        // GET: api/Products/SubProducts => Listing SubCategories by categoty
-        [HttpGet("SubProducts/{categoryId}")]
-        public async Task<ActionResult<IEnumerable<Product>>> GetProductByCategory(int categoryId)
-        {
-            return await _context.Product.Where(x => x.CategoryId == categoryId).ToListAsync();
-        }
         // GET: api/Products
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Product>>> GetProduct()

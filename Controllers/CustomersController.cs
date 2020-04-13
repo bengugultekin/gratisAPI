@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using gratisAPI.Data;
 using gratisAPI.Model;
+using gratisAPI.Services;
 
 namespace gratisAPI.Controllers
 {
