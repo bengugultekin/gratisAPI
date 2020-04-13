@@ -132,8 +132,6 @@ C:\Users\Bengu\source\repos\gratisAPI\bin\Debug\netcoreapp3.1\runtimes\unix\lib\
 C:\Users\Bengu\source\repos\gratisAPI\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.0\System.Runtime.Caching.dll
 C:\Users\Bengu\source\repos\gratisAPI\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
 C:\Users\Bengu\source\repos\gratisAPI\obj\Debug\netcoreapp3.1\gratisAPI.csprojAssemblyReference.cache
-C:\Users\Bengu\source\repos\gratisAPI\obj\Debug\netcoreapp3.1\staticwebassets\gratisAPI.StaticWebAssets.Manifest.cache
-C:\Users\Bengu\source\repos\gratisAPI\obj\Debug\netcoreapp3.1\staticwebassets\gratisAPI.StaticWebAssets.xml
 C:\Users\Bengu\source\repos\gratisAPI\obj\Debug\netcoreapp3.1\gratisAPI.AssemblyInfoInputs.cache
 C:\Users\Bengu\source\repos\gratisAPI\obj\Debug\netcoreapp3.1\gratisAPI.AssemblyInfo.cs
 C:\Users\Bengu\source\repos\gratisAPI\obj\Debug\netcoreapp3.1\gratisAPI.RazorTargetAssemblyInfo.cache
@@ -145,4 +143,8 @@ C:\Users\Bengu\source\repos\gratisAPI\bin\Debug\netcoreapp3.1\Microsoft.Identity
 C:\Users\Bengu\source\repos\gratisAPI\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Logging.dll
 C:\Users\Bengu\source\repos\gratisAPI\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Tokens.dll
 C:\Users\Bengu\source\repos\gratisAPI\bin\Debug\netcoreapp3.1\System.IdentityModel.Tokens.Jwt.dll
+C:\Users\Bengu\source\repos\gratisAPI\bin\Debug\netcoreapp3.1\libman.json
+C:\Users\Bengu\source\repos\gratisAPI\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\Users\Bengu\source\repos\gratisAPI\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Protocols.dll
+C:\Users\Bengu\source\repos\gratisAPI\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
 C:\Users\Bengu\source\repos\gratisAPI\obj\Debug\netcoreapp3.1\gratisAPI.MvcApplicationPartsAssemblyInfo.cache
